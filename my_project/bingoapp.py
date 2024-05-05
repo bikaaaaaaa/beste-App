@@ -37,23 +37,6 @@ def registration_page():
                     st.error("Incorrect email or password. Please try again.")
         else:
             st.error("Account not found. Please register.")
-    else:
-        name = st.text_input("Enter your name")
-        avatars = {
-            "Avatar 1": "images/Avatar 1.jpg",
-            "Avatar 2": "images/Avatar 2.jpg",
-            "Avatar 3": "images/Avatar 3.jpg",
-            # Add more avatars as needed
-        }
-
-        # Display avatars in a row
-        selected_avatar = None
-        
-        for i, (avatar_name, avatar_path) in enumerate(avatars.items()):
-            col1, col2 = st.columns([3, 1])
-            col1.image(avatar_path, caption=avatar_name, width=100)
-            if col2.button("Select", key=f"avatar_button_{i}"):
-                selected_avatar = avatar_path
 
         if st.button("Register"):
             # Save registration information to session state
