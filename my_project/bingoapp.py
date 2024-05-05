@@ -2,13 +2,14 @@ import streamlit as st
 import random
 import json
 import os
+import tasks.txt 
 
 # Function to read tasks from file
 def read_tasks(file_path):
     with open(file_path, "r", encoding="utf-8") as file:
         tasks = file.readlines()
     return tasks
-
+    
 # Function to get a random task
 def get_random_task(tasks):
     return random.choice(tasks)
