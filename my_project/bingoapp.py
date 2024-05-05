@@ -2,7 +2,6 @@ import streamlit as st
 import random
 import json
 import os
-import tasks.txt 
 
 # Function to read tasks from file
 def read_tasks(file_path):
