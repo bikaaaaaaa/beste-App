@@ -38,7 +38,7 @@ def registration_page():
         else:
             st.error("Account not found. Please register.")
 
-        if st.button("Register"):
+    if st.button("Register"):
             # Save registration information to session state
             st.session_state.name = name
             st.session_state.email = email
