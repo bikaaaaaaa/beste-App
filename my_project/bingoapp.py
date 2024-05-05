@@ -45,21 +45,21 @@ def registration_page():
             
         st.session_state.is_registered = True
 
-            # Save user data to a file
-            user_data = {}
-            if os.path.exists("user_data.json"):
-                with open("user_data.json", "r") as file:
-                    user_data = json.load(file)
-            user_data[email] = {
-                "name": name,
-                "email": email,
-                "password": password,
-                "avatar": selected_avatar
-            }
-            with open("user_data.json", "w") as file:
-                json.dump(user_data, file)
+        # Save user data to a file
+        user_data = {}
+        if os.path.exists("user_data.json"):
+            with open("user_data.json", "r") as file:
+                user_data = json.load(file)
+        user_data[email] = {
+            "name": name,
+            "email": email,
+            "password": password,
+            "avatar": selected_avatar
+        }
+        with open("user_data.json", "w") as file:
+            json.dump(user_data, file)
 
-            st.experimental_rerun()
+        st.experimental_rerun()
 
 
 # Define main page layout
