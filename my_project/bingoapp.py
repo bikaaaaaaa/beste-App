@@ -30,7 +30,6 @@ def registration_page():
                 if email in user_data and user_data[email]["password"] == password:
                     st.session_state.name = user_data[email]["name"]
                     st.session_state.email = user_data[email]["email"]
-                    st.session_state.avatar = user_data[email]["avatar"]
                     st.session_state.is_registered = True
                     st.experimental_rerun()
                 else:
@@ -56,7 +55,6 @@ def registration_page():
             "name": name,
             "email": email,
             "password": password,
-            "avatar": selected_avatar
         }
         with open("user_data.json", "w") as file:
             json.dump(user_data, file)
@@ -87,11 +85,6 @@ def profile_page():
     # Display registration information
     st.write(f"Name: {st.session_state.name}")
     st.write(f"Email: {st.session_state.email}")
-    if hasattr(st.session_state, "avatar") and st.session_state.avatar:
-        st.write(f"Avatar: {st.session_state.avatar}")
-        st.image(f"images/{st.session_state.avatar}.jpg", width=200)
-    else:
-        st.write("Avatar: Not selected")
 
 # Define function for today's task page
 def todays_task_page():
